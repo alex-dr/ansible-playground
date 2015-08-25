@@ -1,0 +1,24 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yml
+  tasks:
+    - set_fact:
+        list: "{{hostvars[inventory_hostname]['group_names'] | intersect(hostvars.keys())}}"
+    - debug: var=hostvars.vars_cache[item]['thing']
+      with_items: list
+
+    - set_fact:
+        my_d:
+          key1: 'val1'
+          key2: 'val2'
+
+    - set_fact:
+        new_d:
+          key3: 'val3'
+
+    - debug:
+        msg: "{{my_d.update(new_d)}}{{my_d}}"
+
+    - debug:
+        var: my_d
