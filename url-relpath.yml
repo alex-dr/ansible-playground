@@ -1,0 +1,7 @@
+---
+- hosts: all
+  vars:
+    - url: some.registry.com/username/image:tag
+  tasks:
+    - name: "Print relpath"
+      debug: var="{{url | relpath('some.registry.com')}}"
