@@ -2,6 +2,9 @@
 - hosts: all
   vars:
     - url: some.registry.com/username/image:tag
+    - new_url: my.registry.com
   tasks:
     - name: "Print relpath"
       debug: var="{{url | relpath('some.registry.com')}}"
+    - name: "Print new path"
+      debug: var="{{new_url}}/{{url | relpath('some.registry.com')}}"
