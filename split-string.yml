@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars:
+    - somestring: "firstpart:secondpart"
+  tasks:
+    - name: "Split the string"
+      set_fact:
+        splitstring: "{{somestring.split(':')[0]}}"
