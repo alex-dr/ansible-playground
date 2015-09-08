@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - file:
+        path: /tmp/asdfasdasdf.txt
+        mode: "{{not_defined | default(omit)}}"
+        state: touch
