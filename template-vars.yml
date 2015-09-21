@@ -1,0 +1,3 @@
+---
+dummy_var: ['foo', 'bar']
+test_var: "{% if groups['mongo']|length > 1 %}['{{groups['mongo']|join(':27017\',\'')}}:27017'] {% else %} {{groups['mongo'][0]}} {% endif %}"

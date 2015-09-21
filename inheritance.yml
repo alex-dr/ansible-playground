@@ -1,0 +1,10 @@
+---
+default: &default
+  param1: value1
+  param2: value2
+
+some_list:
+  - entry1:
+      something: somethingelse
+  - <<: *default
+    extra_param: value

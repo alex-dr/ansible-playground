@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars:
+    l1: ['foo']
+    l2: ['bar', 'baz']
+  tasks:
+    - set_fact:
+        b: "{{ 'baz' in l1 | union(l2) }}"
