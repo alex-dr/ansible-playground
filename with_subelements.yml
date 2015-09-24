@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  vars:
+    somevar:
+      somekey: someval
+      results:
+      - foo: bar
+        id: something
+        another_list:
+        - dumb
+        - stuff
+        volumes:
+        - volume1:
+            name: greg
+            type: human
+        - volume2:
+            name: bob
+            type: alien
+      - foo: baz
+        volumes: []
+  tasks:
+  - name: "test"
+    debug: var=item.1
+    with_subelements:
+    - somevar.results
+    - volumes
