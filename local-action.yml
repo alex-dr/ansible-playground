@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+  - local_action:
+      module: stat
+      path: /tmp/foo.txt
+    register: foo
+  - debug:
+      var: foo
