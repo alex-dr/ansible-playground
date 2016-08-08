@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars:
+    foo: True
+    bar: "False"
+  tasks:
+  - set_fact:
+      var: "{{ foo | ternary('foo is true', 'foo is false') }}"
+  - set_fact:
+      var: "{{ bar | ternary('bar is true', 'bar is false') }}"
+  - set_fact:
+      var: "{{ bar | bool | ternary('bool bar is true', 'bool bar is false') }}"
