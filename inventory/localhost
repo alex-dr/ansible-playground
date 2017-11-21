@@ -1,5 +1,5 @@
 [localhost]
-localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/meta/bin/python
-[mongo]
-localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/meta/bin/python
-localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/meta/bin/python
+localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/ap/bin/python
+#[mongo]
+#localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/meta/bin/python
+#localhost ansible_connection=local ansible_python_interpreter=~/.virtualenvs/meta/bin/python

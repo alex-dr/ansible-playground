@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  tasks:
+  - name: debug true var
+    debug:
+      msg: "{{ true_var | bool }}"
+
+  - name: debug false var
+    debug:
+      msg: "{{ false_var | bool }}"
+
+  - name: fail if true is not true
+    fail:
+      msg: true is not true!
+    when: true_var != true
+
+  - name: debug string
+    debug:
+      msg: "{{ string_var }}"
+
+  - name: debug int
+    debug:
+      msg: "{{ int_var }}"
+
+  - name: fail if int is not int
+    fail:
+      msg: int is not an int!
+    when: int_var != 1
