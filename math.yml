@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars:
+    foo: 7200
+    bar: 5
+  tasks:
+  - set_fact:
+      var: "{{ foo / bar }}"
+  - shell: echo fuck
+    register: out
+    until: "'hi' in out.stdout"
+    retries: "{{ var | int}}"
