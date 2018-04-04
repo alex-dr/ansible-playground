@@ -1,0 +1,13 @@
+---
+- hosts: all
+  vars:
+      basepath: /asdf
+  tasks:
+      - find:
+            paths: /tmp/
+            patterns: "*"
+        register: tmp_files
+
+      - name: stat
+        shell: echo {{ basepath }}/relpath/{{ item.path | basename }}
+        with_items: "{{ tmp_files['files'] }}"
