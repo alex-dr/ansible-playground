@@ -1,0 +1,28 @@
+---
+- hosts: all
+  tasks:
+      - name: Create real root directory
+        file:
+            state: directory
+            path: /tmp/ansible_test
+      - name: Create real test directory
+        file:
+            state: directory
+            path: /tmp/ansible_test/real_dir
+
+      - name: Create symlink to test directory
+        file:
+            src: /tmp/ansible_test/real_dir
+            dest: /tmp/ansible_test/symlink
+            state: link
+
+      - name: Get data from real dir
+        stat:
+            path: /tmp/ansible_test/real_dir
+        register: real_dir
+
+      - name: Get data from symlink dir
+        stat:
+            path: /tmp/ansible_test/symlink
+            follow: yes
+        register: symlink

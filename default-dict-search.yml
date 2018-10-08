@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+      foo:
+          bar:
+              baz: asdf
+  tasks:
+      - debug:
+            msg: "{{ foo.get('dontexist', {}).get('alsodont', 'asdf') }}"

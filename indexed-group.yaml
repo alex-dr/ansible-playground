@@ -1,0 +1,5 @@
+---
+- hosts: localhost[0]
+  tasks:
+      - fail: 'nope'
+        when: False
